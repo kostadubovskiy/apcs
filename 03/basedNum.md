@@ -1,3 +1,5 @@
+Yuki Feng & Kosta Dubovskiy
+
 #0.
 "Base" in base-x number system means that the number is being represented as a geometric series with 'wonky' coefficients—basically they are not uniform in any way, only the exponential part of each term is normal. Each coefficient must be between 0 and the base itself, not including the base. The coefficients, if taken (in standard form) from left to right and strung together in a chronological manner, form a number in the base in question. 
 
