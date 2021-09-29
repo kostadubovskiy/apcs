@@ -1,1 +1,1 @@
-
+Yes, I was able to use a enhanced for loop. I just had to add a counter to keep track of the index the for loop was at.
