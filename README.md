@@ -1,1 +1,2 @@
-# apcs_summer_work
+# APCS work 
+Summer homework + Binary Algorithm Descriptor 
