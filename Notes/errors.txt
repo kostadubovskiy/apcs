@@ -1,0 +1,1 @@
+error: class found on application class path: Greet --> Means you used java [FILENAME].java ( don't use the .java exension with java command!!! )
