@@ -1,3 +1,10 @@
+/* 
+Kosta Dubovskiy
+APCS
+HW05 -- How was your summer?
+2021-09-28
+*/
+
 public class Time {
     public static void main(String[] args){
         int hour = 22;
