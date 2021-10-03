@@ -1,3 +1,10 @@
+/* 
+Kosta Dubovskiy
+APCS
+HW05 -- How was your summer?
+2021-09-28
+*/
+
 public class Methods {
     // 2
     public static boolean isDivisible (int n, int m) {
