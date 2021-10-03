@@ -1,5 +1,5 @@
 /* 
-Kosta Dubovskiy
+YAK-y Duckies: Featuring Duckie Paul and Duckie Davie
 APCS
 HW09 -- What are BigSibs good for? — Varied Greetings
 2021-10-04
