@@ -1,3 +1,10 @@
+/* 
+Kosta Dubovskiy
+APCS
+HW08 -- Refactor Freshie Zero
+2021-10-01
+*/
+
 public class Greet {
 	public static void main(String[] args) {
 		System.out.println(greet("Kosta"));
