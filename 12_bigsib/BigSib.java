@@ -1,5 +1,5 @@
 /* 
-Joseph & Kosta: Featuring Duckie and Duckie Davie
+Joseph & Kosta: Featuring Duckie Po and Duckie Davie
 APCS
 HW12 -- on Elder Individuality
 2021-10-04
