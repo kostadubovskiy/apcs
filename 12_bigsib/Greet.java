@@ -11,6 +11,7 @@ DISCOVERIES
 
 /*
 UNRESOLVED QUESTIONS
+why static?
 */
 
 public class Greet {
