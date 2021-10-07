@@ -1,8 +1,16 @@
 /* 
 Joseph & Kosta: Featuring Duckie Po and Duckie Davie
 APCS
-HW12 -- on Elder Individuality
+HW13 -- BigSib hatch
 2021-10-04
+*/
+
+/* DISCO
+Can't use non-static attribute/method pair in this case
+*/
+
+/* QCC
+
 */
 
 public class BigSib {
