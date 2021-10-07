@@ -1,2 +1,2 @@
 # APCS work 
-Summer homework + Binary Algorithm Descriptor 
+School repo for APCS content, all Java. 
