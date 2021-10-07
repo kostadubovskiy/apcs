@@ -6,8 +6,10 @@ HW12 -- on Elder Individuality
 */
 
 public class BigSib {
-	public void constructor() {
-		String helloMsg;
+	public static String helloMsg;
+
+	public BigSib(String newHelloMsg) {
+		helloMsg = newHelloMsg;
 	}
 	
 	public static void setHelloMsg (String newHelloMsg) {
