@@ -1,3 +1,16 @@
+/*
+DISCO
+    Can't use print from inside method;
+    Can't convert primitive int or float to String with toString, must use a copy-cat class named Integer/Float and their respective toString() methods;
+QCC
+    
+Team Joshua, Kosta, Jaclyns’s Latest and Greatest Q2 Response:
+    It initializes all instance variables as null;
+Team Joshua, Kosta, Jaclyns’s Latest and Greatest Q3 Response:
+    It would be worthy to test if it is possible to call .toString() on an Object who's parent class contains no such method, 
+    such that the built-in .toString() method gets called.
+*/
+
 public class BankAccount {
     private static String holderName;
     private static String password;
