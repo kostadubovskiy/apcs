@@ -22,11 +22,11 @@ public class BankAccount {
         BankAccount.setHolderName("Kosta");
         BankAccount.setPassword("08/23/2005");
         BankAccount.setPin(8224);
-        BankAccount.setAccountNum(822485);
+        BankAccount.setAccountNum(156798278);
         BankAccount.setBalance(1);
-        System.out.println(BankAccount.printInfo(8224, 822485));
-        BankAccount.deposit(8224, 822485, 49);
-        BankAccount.withdraw(8224, 822485, 1);
+        System.out.println(BankAccount.printInfo(8224, 156798278));
+        BankAccount.deposit(8224, 156798278, 49);
+        BankAccount.withdraw(8224, 156798278, 1);
     }
 
     public static void setHolderName(String newName) {
@@ -38,11 +38,22 @@ public class BankAccount {
     }
 
     public static void setPin(int newPin) {
-        BankAccount.pin = newPin;
+    	if (newPin > 9998 || newPin < 1000) {
+    		BankAccount.pin = 999999999;
+    		System.out.println("New number out of valid range");
+    	} else {
+    		BankAccount.pin = newPin;
+    	}	
     }
 
     public static void setAccountNum(int newAccNum) {
-        BankAccount.accountNum = newAccNum;
+    	if (newAccNum > 999999998 || newAccNum < 100000000) {
+    		BankAccount.accountNum = 999999999;
+    		System.out.println("New account number out of valid range");
+    	} else {
+    		BankAccount.accountNum = newAccNum;
+    	}	
+    	
     }
 
     public static void setBalance(float newBal) {
