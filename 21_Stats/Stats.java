@@ -2,6 +2,11 @@
  * Kosta Dubovskiy APCS HW21 -- 2021-10-21 TASK: Implement each method without
  * typecasting. xtra: harmonic mean is the reciprocal of the arithmetic mean of
  * the reciprocals
+ * DISCO
+    * Math.pow and .sqrt and .cbrt and so on can only output doubles, since the range for ints is too constrained.
+ * QCC
+    * How do we return an integer root without typecasting?
+    * Why does Java not have a normal built in power operator are they insane?
  **/
 
 public class Stats {
