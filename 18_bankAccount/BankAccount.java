@@ -18,6 +18,7 @@ public class BankAccount {
     private static int accountNum;
     private static float balance;
 
+<<<<<<< HEAD
     public static void main( String[] args) {
         BankAccount.setHolderName("Kosta");
         BankAccount.setPassword("08/23/2005");
@@ -29,6 +30,8 @@ public class BankAccount {
         BankAccount.withdraw(8224, 156798278, 1);
     }
 
+=======
+>>>>>>> fbdb8a1204a8defa61f9aa10965b1279f9fdf0f2
     public static void setHolderName(String newName) {
         BankAccount.holderName = newName;
     }
@@ -80,4 +83,14 @@ public class BankAccount {
         }
     }
 
+    public static void main( String[] args) {
+        BankAccount.setHolderName("Kosta");
+        BankAccount.setPassword("08/23/2005");
+        BankAccount.setPin(8224);
+        BankAccount.setAccountNum(822485);
+        BankAccount.setBalance(1);
+        System.out.println(BankAccount.printInfo(8224, 822485));
+        BankAccount.deposit(8224, 822485, 49);
+        BankAccount.withdraw(8224, 822485, 1);
+    }
 }
