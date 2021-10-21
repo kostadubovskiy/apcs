@@ -37,20 +37,20 @@ public class Stats {
 
     public static int geoMean(int a, int b) {
         int product = a * b;
-        return (int) Math.sqrt(product);
+        return Math.round(Math.round(Math.sqrt(product)));
     }
 
     public static double geoMean(double a, double b) {
-        return (double) Math.sqrt(a * b);
+        return Math.sqrt(a * b);
     }
 
     public static int max(int a, int b, int c) {
         if (a >= b && a >= c) {
-            return (int) a;
+            return a;
         } else if (b >= a && b >= c) {
-            return (int) b;
+            return b;
         } else if (c >= a && c >= b) {
-            return (int) c;
+            return c;
         } else {
             return c;
         }
@@ -58,11 +58,11 @@ public class Stats {
 
     public static double max(double a, double b, double c) {
         if (a >= b && a >= c) {
-            return (double) a;
+            return a;
         } else if (b >= a && b >= c) {
-            return (double) b;
+            return b;
         } else if (c >= a && c >= b) {
-            return (double) c;
+            return c;
         } else {
             return c;
         }
@@ -70,11 +70,11 @@ public class Stats {
 
     public static int geoMean(int a, int b, int c) {
         int product = a * b * c;
-        return (int) Math.cbrt(product);
+        return Math.round(Math.round(Math.cbrt(product)));
     }
 
     public static double geoMean(double a, double b, double c) {
-        return (double) Math.cbrt(a * b * c);
+        return Math.cbrt(a * b * c);
     }
 
     // main method for testing functionality
