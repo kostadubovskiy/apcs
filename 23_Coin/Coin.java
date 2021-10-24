@@ -21,12 +21,12 @@ public class Coin {
      ***/
      
     private double value;
-    private String upFace;
+    private String upFace = "heads";
     private String name;
     private int flipCtr = 0;
     private int headsCtr = 0;
     private int tailsCtr = 0;
-    private double bias = 1/2;
+    private double bias = 0.5;
     
     public Coin() {
     }
@@ -176,7 +176,7 @@ public class Coin {
      * postcond: Return String comprised of name and current face
      ***/
     public String toString() {
-        return name + " " + upFace;
+        return name + " -- " + upFace;
     }
   
   
