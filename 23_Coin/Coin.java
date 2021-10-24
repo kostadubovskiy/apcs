@@ -1,7 +1,11 @@
 /***
  *  class Coin
- *  by Clyde "Thluffy" Sinclair
- *  SKELETON
+ *  by Joseph & Kosta -- Math Duckies
+ *  Working Java Coin Class
+ * DISCO
+   * Java string concetenation isn't so bad
+ * QCC
+   * 
  ***/
 
 public class Coin {
@@ -16,13 +20,13 @@ public class Coin {
      *  postcond:
      ***/
      
-    double value;
-    String upFace;
-    String name;
-    int flipCtr = 0;
-    int headsCtr = 0;
-    int tailsCtr = 0;
-    double bias = 1/2;
+    private double value;
+    private String upFace;
+    private String name;
+    private int flipCtr = 0;
+    private int headsCtr = 0;
+    private int tailsCtr = 0;
+    private double bias = 1/2;
     
     public Coin() {
     }
