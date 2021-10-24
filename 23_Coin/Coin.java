@@ -1,7 +1,8 @@
 /***
- * class Coin by Joseph & Kosta -- Math Duckies Working Java Coin Class DISCO
- * Java string concetenation isn't so bad QCC
- * 
+ * class Coin by Joseph & Kosta -- Math Duckies Working Java Coin Class 
+ * DISCO
+  * Java string concetenation isn't so bad
+ * QCC
  ***/
 
 public class Coin {
