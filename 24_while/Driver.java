@@ -22,6 +22,7 @@ public class Driver {
         //test toString() methods of each Coin
         System.out.println("mine: " + mine);
         
+        
         System.out.println("yours: " + yours);
         
         System.out.println("wayne: " + wayne);
