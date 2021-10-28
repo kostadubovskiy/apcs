@@ -1,3 +1,15 @@
+/***
+ * Kosta Dubovskiy
+ * APCS
+ * HW27 -- For Loops w/ Fences and String operations
+ * 2021-10-28
+ * Time spent: 0.5
+ * QCC
+ * DISCO
+  	 * Substring is inclusive of only start index, not end
+	 * Java doesn't use square brackets for String indexing/access
+ */
+
 public class Rof {
 	public static void main(String[] args) {
 		System.out.println(fence(1));
