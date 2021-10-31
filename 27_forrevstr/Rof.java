@@ -10,8 +10,7 @@
 	 * Java doesn't use square brackets for String indexing/access
  */
 
-public class Rof {
-	public static void main(String[] args) {
+public class Rof {	public static void main(String[] args) {
 		System.out.println(fence(1));
 		System.out.println(reverseF("abc"));
 		System.out.println(reverseR("abc"));
