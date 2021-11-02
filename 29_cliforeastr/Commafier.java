@@ -1,3 +1,14 @@
+/***
+ * Kosta Dubovskiy
+ * APCS
+ * HW29 -- For Loops & Recursion with prettifying numbers
+ * 2021-11-02
+ * Time spent: 0.5
+ * QCC
+ * DISCO
+  	 * Java is a bit annoying for String mutability
+ */
+
 public class Commafier {
     public static void main(String[] args) {
         System.out.println(commafyR(123817837));
