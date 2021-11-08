@@ -1,5 +1,4 @@
 /***
- * /***
  * Kosta Dubovskiy
  * APCS
  * HW31 -- Pig Latin
@@ -10,7 +9,8 @@
  *
  * class Pig
  * a Pig Latin translator
- * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
+ * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~
+ ~~~~~~~~~~~~~~~
  *           9
  *     ,--.-'-,--.
  *     \  /-~-\  /
@@ -28,7 +28,7 @@
 public class Pig
 {
   //Q: How does this initialization make your life easier?
-  private static final String VOWELS = "aeiou";
+  private static final String VOWELS = "aeiouAEIOU";
 
 
   /*=====================================
@@ -115,6 +115,16 @@ public class Pig
         }
     }
     return result;
+  }
+  
+  public static String wordTranslator(String w) 
+  {
+  	String result = "";
+  	if (w.substring(0, 1).isAVowel()) {
+  		return w + "way";
+  	}
+  	
+  	
   }
 
 
