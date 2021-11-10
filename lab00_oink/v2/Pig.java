@@ -9,7 +9,7 @@
  * a Pig Latin translator
 */
 
-public class v2{
+public class Pig {
 
     private static final String VOWELS = "aeiouAEIOU";
 
