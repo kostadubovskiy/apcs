@@ -4,7 +4,7 @@ public class test {
 		Integer y = 3;
 		System.out.println(x == y);
 		System.out.println(x.equals(y));
-		System.out.println(x);
-		System.out.println(y);
-	}
+		//System.out.println(x); 3
+		//System.out.println(y); 3
+		}
 }
