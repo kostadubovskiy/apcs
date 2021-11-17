@@ -33,12 +33,15 @@ public class Slots {
       Slots() -- default constructor
       pre:  constant array FRUITS exists, has been initialized
       post: mutable array _fruits contains same elements as FRUITS
-      ====================/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      */
       //copy elements of FRUITS into _fruits:
+    public Slots() {
+        _fruits = new String[FRUITS.length];
         for (int i = 0; i < FRUITS.length; i++) {
             _fruits[i] = FRUITS[i];
         }
     }
+    
   
   
     /*=====================================
@@ -130,13 +133,14 @@ public class Slots {
   
       System.out.println( "\nSpinning machine01...\n" );
   
-      //machine01.spinOnce();
-      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      machine01.spinOnce();
+      
         
       System.out.println();
       System.out.println( "Machine01 state:\t" + machine01 );
       System.out.println( "Machine02 state:\t" + machine02 );
       System.out.println();
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   
       //test gamble-until-you-win mechanism
