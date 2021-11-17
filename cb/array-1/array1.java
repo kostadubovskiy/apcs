@@ -46,7 +46,52 @@ public class array1{
       return result;
     }
     
-    
+    public int[] rotateLeft3(int[] nums) {
+        int[] array = new int[nums.length];
+        
+        for (int i = nums.length - 1; i > 0; i--) {
+          array[i - 1] = nums[i];
+        }
+        
+        array[array.length - 1] = nums[0];
+        
+        return array;
+    }
+      
+    public int[] reverse3(int[] nums) {
+        int[] array = new int[nums.length];
+        
+        for (int i = nums.length - 1; i > 0; i--) {
+          array[array.length - i - 1] = nums[i];
+        }
+        
+        array[array.length - 1] = nums[0];
+        
+        return array;
+    }
+      
+    public int[] maxEnd3(int[] nums) {
+        if (nums[0] >= nums[2]) {
+          nums[1] = nums[0];
+          nums[2] = nums[0];
+        } else {
+          nums[0] = nums[2];
+          nums[1] = nums[2];
+        }
+        return nums;
+    }
+
+    public int sum2(int[] nums) {
+        int total = 0;
+        for (int i = 0; i < nums.length; i++) {
+          total += nums[i];
+          if (i == 1) {
+            break;
+          }
+        }
+        return total;
+      }
+      
     
     public static void main (String[] args) {
       int[] array = {1,2,6};
