@@ -1,0 +1,28 @@
+Kosta Dubovskiy
+APCS
+Mr. Mykolyk
+HW 36: Appendix D of Java Docs: Debugging
+11-18-2021
+
+Notes:
+
+	•	Compile-time errors
+	⁃	Indicate that there is something wrong with the syntax of the program.
+	⁃	KtS: Incremental Development, increases success rate of error catching and locating
+	⁃	KtS: When compiler spews error messages, go through them one by one—compiling after each—starting from the first one
+	⁃	*KtS*(Extreme case): Debugging by bisection, cutting out half the code in a copy of the original file and running it to locate the source of the error.
+	•	Run-time errors
+	⁃	Are produced if something goes wrong while the program is running.
+	⁃	Infinite loops or infinite recursions
+	⁃	KtS: Print statements for entering/exiting the loop
+	⁃	If too overwhelming, simplify the code/print commands to make the outputs more concise and fewer in number
+	⁃	NullPointerException: Tried to invoke/access a null inst. var. or object.
+	•	Logic errors
+	⁃	Cause the program to do the wrong thing.
+	⁃	No info. provided by compiler to help—this one’s on you
+	⁃	Common errors:
+	⁃	Remember that integer division always rounds toward zero. If you want fractions, use double. More generally, use integers for countable things and floating-point numbers for measurable things.
+	⁃	Floating-point numbers are only approximate, so don’t rely on them to be perfectly accurate. You should probably never use the == operator with double’s. Instead of writing if (d == 1.23), do something like if (Math.abs(d - 1.23) < .000001).
+	⁃	When you apply the equality operator (==) to objects, it checks whether they are identical. If you meant to check equivalence, you should use the equals method instead.
+	⁃	By default for user-defined types, equals checks identity. If you want a different notion of equivalence, you have to override it.
+	⁃	Inheritance can lead to subtle logic errors, because you can run inherited code without realizing it.
