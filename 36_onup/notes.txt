@@ -6,18 +6,18 @@ HW 36: Appendix D of Java Docs: Debugging
 
 Notes:
 
-	•	Compile-time errors
+	Compile-time errors
 	⁃	Indicate that there is something wrong with the syntax of the program.
 	⁃	KtS: Incremental Development, increases success rate of error catching and locating
 	⁃	KtS: When compiler spews error messages, go through them one by one—compiling after each—starting from the first one
 	⁃	*KtS*(Extreme case): Debugging by bisection, cutting out half the code in a copy of the original file and running it to locate the source of the error.
-	•	Run-time errors
+	Run-time errors
 	⁃	Are produced if something goes wrong while the program is running.
 	⁃	Infinite loops or infinite recursions
 	⁃	KtS: Print statements for entering/exiting the loop
 	⁃	If too overwhelming, simplify the code/print commands to make the outputs more concise and fewer in number
 	⁃	NullPointerException: Tried to invoke/access a null inst. var. or object.
-	•	Logic errors
+	Logic errors
 	⁃	Cause the program to do the wrong thing.
 	⁃	No info. provided by compiler to help—this one’s on you
 	⁃	Common errors:
