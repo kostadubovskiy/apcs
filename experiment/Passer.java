@@ -1,4 +1,4 @@
-public class Experiment {
+public class Passer {
     public static void main(String[] args) {
         int v = 10;
         int tempV = v;
