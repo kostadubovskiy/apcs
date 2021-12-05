@@ -1,9 +1,9 @@
 /*
 Team BPK: Ben Belotser, Perry Huang, Kosta Dubovskiy
 APCS pd07
-HW41 -- Be Rational/Rationals/Making rationals and multiplying and dividing them
-2021-12-01
-time spent: 1.0 hour
+HW42 -- Be Rational/Rationals/Making rationals and adding/subtracting/comparing them
+2021-12-05
+time spent: 0.5 hour
 
 DISCO
 Using an object to change another object doesn't change the first object's value.
