@@ -26,6 +26,9 @@ public class SuperArray
   public SuperArray()
   {
     _data = new int[10];
+    for (int i : _data) {
+      i = 0;
+    }
     _size = 0;
   }
 
@@ -49,8 +52,9 @@ public class SuperArray
   private void expand()
   {
     int[] temp = new int[ _data.length * 2 ];
-    for( int i = 0; i < _data.length; i++ )
+    for( int i = 0; i < _data.length; i++ ) {
       temp[i] = _data[i];
+    }
     _data = temp;
   }
 
@@ -74,6 +78,9 @@ public class SuperArray
   //adds an item after the last item
   public void add( int newVal )
   {
+    if (_data[_size] != 0) {
+      expand();
+    }
      _data[size()] = newVal;
   }
 
@@ -81,7 +88,7 @@ public class SuperArray
   //inserts an item at index
   public void add( int index, int newVal )
   {
-    for (int i = size() - 1; i > index; i --) {
+    for (int i = size() - 1; i > index; i--) {
       _data[i + 1] = _data[i];
     }
     _data[index] = newVal;
@@ -124,21 +131,20 @@ public class SuperArray
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
+    
       SuperArray curtis = new SuperArray();
       System.out.println( "Printing empty SuperArray curtis..." );
       System.out.println( curtis );
       for( int i = 0; i < curtis._data.length; i++ ) {
-      curtis.set( i, i * 2 );
+        curtis.set( i, i * 2 );
       }
       System.out.println("Printing populated SuperArray curtis...");
       System.out.println(curtis);
       for( int i = 0; i < 3; i++ ) {
-      curtis.expand();
-      System.out.println("Printing expanded SuperArray curtis...");
-      System.out.println(curtis);
-      System.out.println("new length of underlying array: "
-      + curtis._data.length );
+        curtis.expand();
+        System.out.println("Printing expanded SuperArray curtis...");
+        System.out.println(curtis);
+        System.out.println("new length of underlying array: " + curtis._data.length );
       }
       SuperArray mayfield = new SuperArray();
       System.out.println("Printing empty SuperArray mayfield...");
@@ -165,7 +171,6 @@ public class SuperArray
       mayfield.add(1,77);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
   }//end main()
 
 
