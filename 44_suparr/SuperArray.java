@@ -74,14 +74,14 @@ public class SuperArray
   //adds an item after the last item
   public void add( int newVal )
   {
-     _data[this.size(_data)] = newVal;
+     _data[size()] = newVal;
   }
 
 
   //inserts an item at index
   public void add( int index, int newVal )
   {
-    for (int i = this.size(_data) - 1; i > index; i --) {
+    for (int i = size() - 1; i > index; i --) {
       _data[i + 1] = _data[i];
     }
     _data[index] = newVal;
@@ -92,7 +92,7 @@ public class SuperArray
   //shifts elements left to fill in newly-empted slot
   public void remove( int index )
   {
-    preSize = this.size(_data);
+    int preSize = size();
     _data[index] = 0;
     //this.leftJustify();
     for (int i = index; i < preSize; i++) {
