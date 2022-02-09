@@ -1,4 +1,4 @@
-Team RKL (Ruby F, Leor P, Kosta D)
+Team RK_ (Ruby F, _____, Kosta D)
 APCS pd7
 HW61 -- MergeSort Implementation
 2022-02-08r
