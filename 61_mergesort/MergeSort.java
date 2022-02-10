@@ -19,15 +19,22 @@ public class MergeSort
     int indB = 0;
     int counter = 0;
     int[] both = new int[a.length + b.length];
-    while(indA != a.length || indB != b.length) {
+
+    while(indA < a.length || indB < b.length) {
       if (indB == b.length) {
         while (indA != a.length) {
           both[counter] = a[indA];
           indA += 1;
+          counter += 1;
         }
-      }
-      else {
-        if (a[indA] > b[indB]) {
+      } else if (indA == a.length) {
+        while (indB != b.length) {
+          both[counter] = b[indB];
+          indB += 1;
+          counter += 1;
+        }
+      } else {
+        if (a[indA] < b[indB]) {
           both[counter] = a[indA];
           indA += 1;
         } else {
@@ -47,10 +54,24 @@ public class MergeSort
    * Sorts input array using mergesort algorithm
    * Returns sorted version of input array (ascending)
    ******************************************************/
-  //public static int[] sort( int[] arr )
-  //{
-
-  //}//end sort()
+  public static int[] sort( int[] arr )
+  {
+    if(arr.length == 1) {
+      return arr;
+    } else {
+      int midpoint = arr.length / 2;
+      int[] firstHalf = new int[midpoint];
+      int[] secondHalf = new int[arr.length - midpoint];
+      for(int i = 0; i < arr.length; i++) { // copy the first half of our array over into a new array
+        if (i >= midpoint) {
+          secondHalf[i - midpoint] = arr[i];
+        } else {
+          firstHalf[i] = arr[i];
+        }
+      }
+      return merge(sort(firstHalf), sort(secondHalf));
+    }
+  }//end sort()
 
 
 
@@ -84,20 +105,23 @@ public class MergeSort
       int[] arr5 = {4,3,2,1};
       int[] arr6 = {9,42,17,63,0,512,23};
       int[] arr7 = {9,42,17,63,0,9,512,23,9};
-      System.out.println("\nTesting mess-with-array method...");
-      printArray( arr3 );
-      mess(arr3);
-      printArray( arr3 );
       System.out.println("\nMerging arr1 and arr0: ");
       printArray( merge(arr1,arr0) );
+      System.out.println("\nMerging arr2 and arr3: ");
+      printArray( merge(arr2,arr3) );
+      System.out.println("\nMerging arr1 and arr3: ");
+      printArray( merge(arr1,arr3) );
+      System.out.println("\nMerging arr3 and arr4: ");
+      printArray( merge(arr3,arr4) );
       System.out.println("\nMerging arr4 and arr6: ");
-      printArray( merge(arr4,arr6) );
-          /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
+      printArray( merge(arr4,arr6) ); // arr6 isn't sorted, so it makes sense that this result is wonky
+          
       System.out.println("\nSorting arr4-7...");
       printArray( sort( arr4 ) );
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
+      /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
