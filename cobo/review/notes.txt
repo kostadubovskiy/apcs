@@ -73,3 +73,53 @@ Activity Four
       has a sentimentVal with a greater magnitude.
 
 Activity Five 
+   1. We love the letter w and we wish to spread our love for w's
+      with the whole world, so we ensured that every word gets
+      to enjoy having a w in it. We replaced every third letter
+      in words over 3 characters long with w's using 4 methods.
+   2. First we thought of the idea. Then we planned out which
+      methods we would probably need. Then we went to work on
+      the method which replaces the third letter of a word with
+      'w', which we then extrapolated to replace the third letter
+      of every word in a sentence with 'w'. We then added 
+      removePunctuation() and getPunctuation() to avoid instances
+      where the program thinks that '!!!!' is a four letter word.
+      We then executed test cases to ensure everything worked
+      properly.
+   3. public static String wordMess(String word)
+      We have a String word parameter to have a word to work on,
+      and then we have a return type of String to return the
+      w-ified word. The method is static because we only want to 
+      call it from this class.
+   4. removePunctuation(word).length()
+      word = word.substring(0, 3) + "w" + word.substring(4);
+      These two code snippets from our messWord() method are used
+      to check if the word that is inputed is longer than 3 characters
+      excluding punctuation, and then to w-ifiy the word.
+   5. while (word.length() > 0 && !Character.isAlphabetic(word.charAt(0))) {
+      This compound boolean expression in the while loop could have been rewritten
+      as a nested if statement in a while loop. The while loop would
+      retain the second condition, and the if statement would 'break;'
+      if the first condition is not met:
+         while(!Character.isAlphabetic(word.charAt(0))) {
+            if(word.length() > 0) {
+               break;
+            }
+            .
+            .
+            .
+         }
+   6.    for (String word : words) {
+               word = wordMess(word);
+               result += word;
+         }
+      This loop iterates through the array of the words in an inputed
+      sentence and makes each element take the value of 'messWord(word);'
+      basically w-ifiying it. Then it concatenates the word onto the ending
+      of the result String that we later return. Here is a standard for loop,
+      rather than enhanced:
+
+         for(int i = 0; i < words.length; i ++) {
+            String word = wordMess(words.get(i));
+            result += word;
+         }
