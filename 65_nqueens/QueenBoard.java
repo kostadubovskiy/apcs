@@ -85,6 +85,7 @@ public class QueenBoard
           result += "Q";
         }
       }
+      result += "\n";
     }
     System.out.println(result);
   }
