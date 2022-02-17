@@ -1,3 +1,12 @@
+/*
+Team RKL
+Ruby F, Kosta D, Lior P
+APCS
+HW65 -- NQueens
+2022-02-16
+time spent: 1.5
+*/
+
 /***
  * class QueenBoard
  * Generates solutions for N-Queens problem.
@@ -12,8 +21,9 @@ public class QueenBoard
 
   private int[][] _board;
 
-/*Initializes 2d array board
-*/
+  /*** 
+   * Initializes 2d array board
+  */
   public QueenBoard( int size )
   {
     _board = new int[size][size];
@@ -28,18 +38,33 @@ public class QueenBoard
    * If no solution, board is filled with 0's,
    * returns false.
    */
+
   public boolean solve()
   {
-    return false;
+    return solveH(0);
   }
 
 
-  /**
-   *Helper method for solve.
-   Solves horizontally (rows) b
+  /***
+   * Helper method for solve.
+   * Solves horizontally (rows) b
+   * Checks if there is a viable square to place a queen for a given column
    */
   private boolean solveH( int col )
   {
+    if (col >= _board.length) { // if it's done it's done
+      return true;
+    }
+    for (int i = 0; i < _board.length; i++) { // loop through each row
+      if (addQueen(i, col)) { // if a queen is add-able, add it
+        if (solveH(col+1) == false) { // if next column is not solvable, remove queen from before. Recursive call
+          removeQueen(i, col); // remove queen just placed if the branch that we just recursively built ends up not working/having a solution
+        }
+        else {
+          return true;        
+        }
+      }
+    }
     return false;
   }
 
@@ -51,6 +76,16 @@ public class QueenBoard
         all negs and 0's replaced with underscore
         all 1's replaced with 'Q'
     */
+    String result = "";
+    for(int[] r : _board) {
+      for(int c : r) {
+        if(c < 1) {
+          c = "_";
+        } else {
+          c = "Q";
+        }
+      }
+    }
   }
 
 
@@ -131,7 +166,13 @@ public class QueenBoard
   //main method for testing...
   public static void main( String[] args )
   {
-    QueenBoard b = new QueenBoard(5);
+    QueenBoard b = new QueenBoard(4);
+    if (b.solve()) {
+      System.out.println(b);
+    } else {
+      System.out.println("nah");
+    }
+    /*
     System.out.println(b);
     /** should be...
        0	0	0	0	0
@@ -139,7 +180,6 @@ public class QueenBoard
        0	0	0	0	0
        0	0	0	0	0
        0	0	0	0	0
-    */
 
     b.addQueen(3,0);
     b.addQueen(0,1);
@@ -150,7 +190,6 @@ public class QueenBoard
        0	-1	0	 -1	 0
        1	-1	-1 -1	-2
        0	-1	0	  0	 0
-    */
 
     b.removeQueen(3,0);
     System.out.println(b);
