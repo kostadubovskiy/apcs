@@ -77,15 +77,16 @@ public class QueenBoard
         all 1's replaced with 'Q'
     */
     String result = "";
-    for(int[] r : _board) {
-      for(int c : r) {
-        if(c < 1) {
-          c = "_";
+    for(int c = 0; c < _board.length; c++) {
+      for(int[] r : _board) {
+        if(r[c] < 1) {
+          result += "_";
         } else {
-          c = "Q";
+          result += "Q";
         }
       }
     }
+    System.out.println(result);
   }
 
 
@@ -168,7 +169,7 @@ public class QueenBoard
   {
     QueenBoard b = new QueenBoard(4);
     if (b.solve()) {
-      System.out.println(b);
+      b.printSolution();
     } else {
       System.out.println("nah");
     }
