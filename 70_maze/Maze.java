@@ -137,7 +137,6 @@ class MazeSolver
   public void solve( int x, int y )
   {
     delay( FRAME_DELAY ); //slow it down enough to be followable
-
     //primary base case
     if ( _maze[y][x] == EXIT ) {
 	     _solved = true;
@@ -164,8 +163,14 @@ class MazeSolver
     //after marking current location
     else {
       System.out.println( this ); //refresh screen
-      solve(y - 1, x -1);
+      solve(y - 1, x - 1);
       solve(y - 1, x);
+      solve(y - 1, x + 1);
+      solve(y, x - 1);
+      solve(y, x + 1);
+      solve(y + 1, x - 1);
+      solve(y + 1, x);
+      solve(y + 1, x + 1);
       System.out.println( this ); //refresh screen
     }
   }
