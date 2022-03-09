@@ -75,4 +75,9 @@ public class FastSelect {
         pvtInd = (start + end) / 2;
     }
   }
+
+  public static void main(String[] args) {
+      int[] arr = {0, 5, 3, 6, 5};
+      System.out.println(fastSelect(arr, 2));
+  }
 }
