@@ -1,3 +1,16 @@
+/**
+ * Unicorn Unicodes: Eric, Lea, Kosta
+ * APCS
+ * HW72 -- Fast Select yth Smallest Value w/ Partitioning
+ * 2022-03-08
+ * time spent: .5 hours
+ * 
+ * ALGO: O(n^2)... not greart
+ * BEST CASE SCENARIO: When the first pivot that we choose maps to the y-1th index after being partitioned
+ * WORST CASE SCENARIO: When the array is in reverse order should be the worst case
+ * DISCO: We believe that this algorithm assumes that all elements are unique, which may not be the case. This is because our linear search simply finds the first occurance of the value not all of them.
+ * QCC: How can we fix the assumptiom above, and improve time efficiency??
+ */
 public class FastSelect {
     //--------------v  HELPER METHODS  v--------------
     //swap values at indices x, y in array o
@@ -65,9 +78,9 @@ public class FastSelect {
         pvtVal = arr[pvtInd]; // get val at pvt
         arr = partition(arr, start, end, pvtInd); // partition by current pvt
         newLoc = find(arr, pvtVal); // find where val at pvt ended up
-        if(newLoc < y) { // if val at pvt ended up too small
+        if(newLoc < y - 1) { // if val at pvt ended up too small
             start = newLoc;
-        } else if(newLoc > y) {
+        } else if(newLoc > y - 1) {
             end = newLoc;
         } else {
             return arr[y - 1];
@@ -79,5 +92,7 @@ public class FastSelect {
   public static void main(String[] args) {
       int[] arr = {0, 5, 3, 6, 5};
       System.out.println(fastSelect(arr, 2));
+      int[] arr2 = {1, 1, 1, 1, 1};
+      System.out.println(fastSelect(arr2, 2));
   }
 }
