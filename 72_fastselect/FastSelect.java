@@ -1,4 +1,5 @@
 public class FastSelect {
+    //--------------v  HELPER METHODS  v--------------
     //swap values at indices x, y in array o
     public static void swap( int x, int y, int[] o )
     {
@@ -6,6 +7,17 @@ public class FastSelect {
         o[x] = o[y];
         o[y] = tmp;
     }
+
+    public static int find(int[] arr, int val) {
+        for(int i = 0; i < arr.length; i ++) {
+            if(arr[i] == val) { 
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    //--------------^  HELPER METHODS  ^--------------
     /**
    * int partition(int[],int,int,int)
    * DESCRIP
@@ -44,6 +56,23 @@ public class FastSelect {
    * Execution time: O(?)
    */
   public static int fastSelect(int[] arr, int y) {
-    
+    int newLoc; // init new loc
+    int start = 0; // init start
+    int end = arr.length - 1; // init end
+    int pvtInd = (start + end) / 2; // first pvt is middle, arbitrary choice
+    int pvtVal; // init val at pvt
+    while(true) {
+        pvtVal = arr[pvtInd]; // get val at pvt
+        arr = partition(arr, start, end, pvtInd); // partition by current pvt
+        newLoc = find(arr, pvtVal); // find where val at pvt ended up
+        if(newLoc < y) { // if val at pvt ended up too small
+            start = newLoc;
+        } else if(newLoc > y) {
+            end = newLoc;
+        } else {
+            return arr[y - 1];
+        }
+        pvtInd = (start + end) / 2;
+    }
   }
 }
