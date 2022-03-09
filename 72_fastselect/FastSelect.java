@@ -43,4 +43,7 @@ public class FastSelect {
    * 
    * Execution time: O(?)
    */
+  public static int fastSelect(int[] arr, int y) {
+
+  }
 }
