@@ -1,57 +1,56 @@
-// TNPG: RKL (Ruby F, Kosta D, Lior P)
-// APCS pd07
+// Pautrio: Oscar Breen, Lindsay Phung, Joseph Othman
+// APCS pd7
 // HW71 -- Reading for intent, tracing for VICTORY
 // 2022-03-07m
-// time spent: 1.0 hrs
+// time spent: 0.5 hrs
 
 /***
+ * SKEELTON for
  * class Mysterion
  * tests preliminary hypotheses re: utility of mystery algo
- * 
+ *
  * <h1>It's a Bird, It's a Plane! It's.... MYSTERION</h1>
- * The Mysterion method ...  takes in an input array, and it looks at the data chunk between the inputted start and end indices.
-   * It then sorts that interval into two sections, left and right. Using the third input value, splitInd, it sets a special value.
-   * This value is used as a comparison for all array values, if an array element is less than or equal then it goes into the left section of the array,
-   * if however it is greater than the special value at the specifed index it will go in the right section.
+ * The Mysterion method ... <YOUR TRIO'S DESCRIPTION HERE>
  * <p>
  * <b>Note:</b> BLAH blah blah, yakkety schmakketty...
  * @author  Trey Parker, Matt Stone
  * @version 3.1415926535897932384626433
- * @since   2022-03-07m 
+ * @since   2022-03-07m
+ *
  * algo as pseudocode:
  * ------------------------------
  *     v = arr[c]
- *     swap arr[c], arr[b]  
+ *     swap arr[c], arr[b]
  *     s = a
  *     for i in [a..b-1]
  *         if arr[i] < v
  *             swap arr[s], arr[i]
  *             s+=1
- *     swap arr[b], arr[s] 
- * 
- * DISCO
- * Tracing is very useful when trying to find patterns.
- * Try a variety of test cases changing 1 variable at a time to see what it affects.
+ *     swap arr[b], arr[s]
  *
+ * DISCO
+ *  After running Mysterion over all possible choices of c within the array, we eventually get
+      a sorted array.
+    The partition idea reminds us of insertion sort; could this be used for a sorting algo?
+      If so, we might apply a recursive divide and conquer similar to merge sort. Don't see
+      exactly how to do this yet though.
  * QCC
- * Why/when would a person use this algorithm?
- * What exactly is a javadoc?
- * What kind of pseudo code were we given in class? Is it a language or is it just not fully coded?
- * 
+ *  Can we do better than testing each element as a "center?"
+    How to choose a, b, and c "optimally?"
  * q0: What does it do?
- * a0: It takes in an input array, and it looks at the data chunk between the inputted start and end indices.
-   * It then sorts that interval into two sections, left and right. Using the third input value, splitInd, it sets a special value.
-   * This value is used as a comparison for all array values, if an array element is less than or equal then it goes into the left section of the array,
-   * if however it is greater than the special value at the specifed index it will go in the right section. 
- * 
+ * a0: Chooses an element as the "center," then partitions the subarray from index a to index b-1
+ into 2 groups; on the left, the elements are less than the center, and the right consists of
+ elements at least the center. Then places the center element between the two parts of the subarray.
+ *
  * q1: O(?)
- * a1: The runtime is O(n) because the operation of comparing values at indices that is inside the for loop is constant time. 
- * Thus the function just loops through each element once, which is essentially O(n). * 
+ * a1: Mysterion's worst case scenario is O(n) runtime; this occurs when a = 0 and b = arr.length - 1,
+ and c = index of the minimum element (this implies that each iteration in the loop leads to 1 swap).
+ *
  ***/
 
 
-public class Mysterion 
-{    
+public class Mysterion
+{
   //--------------v  HELPER METHODS  v--------------
   //swap values at indices x, y in array o
   public static void swap( int x, int y, int[] o )
@@ -61,7 +60,7 @@ public class Mysterion
     o[y] = tmp;
   }
 
-  //print input array 
+  //print input array
   public static void printArr( int[] a )
   {
     for ( int o : a )
@@ -80,7 +79,7 @@ public class Mysterion
       swap( i, swapPos, d );
     }
   }
-    
+
   //return int array of size s, with each element fr range [0,maxVal)
   public static int[] buildArray( int s, int maxVal )
   {
@@ -91,91 +90,116 @@ public class Mysterion
   }
   //--------------^  HELPER METHODS  ^--------------
 
+
   /**
    * int mysterion(int[],int,int,int)
    * DESCRIP
-   * This method takes in an input array, and it looks at the data chunk between the inputted start and end indices.
-   * It then sorts that interval into two sections, left and right. Using the third input value, splitInd, it sets a special value.
-   * This value is used as a comparison for all array values, if an array element is less than or equal then it goes into the left section of the array,
-   * if however it is greater than the special value at the specifed index it will go in the right section. 
-   * 
-   * @param arr : input array
-   * @param start : start index
-   * @param end : end index
-   * @param splitInd : index of special comparative value
-   * @return int[]
+   * chooses an element as a "center" (don't know actual terminology), and works around that
+    moves that center to index b, and then partitions subarray between indicies a and b-1
+    into 2 parts: the part that consists of elemets that are smaller than the center element
+    (on the left) and the part that consists of elements that are at least as large as the
+    center element (on the right). Then, puts the center element between the 2 parts.
+   * @param arr
+   * @param a
+   * @param b
+   * @param c
+   * @return int
    *
    */
-  public static int[] splitter( int arr[], int start, int end, int splitInd)
+  public static int mysterion( int arr[], int a, int b, int c)
   {
-	int splitVal = arr[splitInd];
-	swap(splitInd, end, arr);
-	int numSwaps = start;
-	for (int i = start; i < end; i++) {
-		if (arr[i] < splitVal) {
-            swap(i, numSwaps , arr);
-			numSwaps += 1;
-		}
-	}
-	swap(end, numSwaps, arr);
-	return arr;
-  }//end splitter
+    /** Copy and Pasted for convenience
+    * algo as pseudocode:
+    * ------------------------------
+    *     v = arr[c]
+    *     swap arr[c], arr[b]
+    *     s = a
+    *     for i in [a..b-1]
+    *         if arr[i] < v
+    *             swap arr[s], arr[i]
+    *             s+=1
+    *     swap arr[b], arr[s]
+    */
+    int v = arr[c]; // CHOOSE THE CENTER ELEMENT
+    swap(c,b,arr); // SWAP CENTER ELEMENT TO END OF SUBARRAY
+    int s=a;
+    for(int i = a; i < b; i++) { //PERFORM SWAPS UNTIL THE ARRAY IS PARTITIONED INTO THE AFOREMENTIONED PARTS
+      if (arr[i] < v) {
+        swap(s,i,arr);
+        s+=1; // MOVES THE LINE OF DIVISION BETWEEN THE TWO PARTS OF THE SUBARRAY
+      }
+    }
+    swap(b,s,arr); // PLACES CENTER ELEMENT AT THE END OF THE FIRST PART OF THE SUBARRAY
+    return arr[s];
+  }//end mysterion
+
 
   //main method for testing
   public static void main( String[] args )
   {
+
 
     //init test arrays of magic numbers
     int[] arr1 = {8,21,17,69,343};
     int[] arr3 = {1,28,33,4982,37};
     int[] arr4 = {5,4,17,9000,6};
     int[] arr5 = {3,0,16,599,1024};
-    int[] arr6 = {7, 1, 5, 12, 3};
+    int[] arr6 = {7,1,5,12,3};
+
+    System.out.println(mysterion(arr5, 0, 4, 2));
+
+    /**
+    System.out.println("arr6: ");
+    printArr(arr6);
+    mysterion(arr6,0,4,2);
+    System.out.println("after mysterion w/ a=0,b=4,c="
+    + 2 +"...");
+    printArr(arr6);
+    System.out.println("-----------------------");
+    */
 
     // run mysterion on each array,
     // holding a & b fixed, varying c...
-    for( int testC = 0; testC < 5; testC++ ) {
+   /* for( int testC = 0; testC < 5; testC++ ) {
     System.out.println("arr1: ");
     printArr(arr1);
-    splitter(arr1,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    mysterion(arr1,0,4,testC);
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr1);
     System.out.println("-----------------------");
-    
+
+    // Where be arr2?
+
     System.out.println("arr3:");
     printArr(arr3);
-    splitter(arr3,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    mysterion(arr3,0,4,testC);
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr3);
     System.out.println("-----------------------");
 
     System.out.println("arr4:");
     printArr(arr4);
-    splitter(arr4,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    mysterion(arr4,0,4,testC);
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr4);
     System.out.println("-----------------------");
 
     System.out.println("arr5:");
     printArr(arr5);
-    splitter(arr5,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
+    mysterion(arr5,0,4,testC);
+    System.out.println("after mysterion w/ a=0,b=4,c="
     + testC +"...");
     printArr(arr5);
     System.out.println("-----------------------");
+    " */
 
-    System.out.println("arr6:");
-    printArr(arr6);
-    splitter(arr6,0,4,testC);
-    System.out.println("after mysterion w/ a=0,b=4,c=" 
-    + testC +"...");
-    printArr(arr6);
-    System.out.println("-----------------------");
-   }
+    
 
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main
 
 }//end class Mysterion

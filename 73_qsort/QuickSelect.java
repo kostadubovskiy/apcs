@@ -1,9 +1,9 @@
 /**
  * Unicorn Unicodes: Eric, Lea, Kosta
  * APCS
- * HW72 -- Fast Select yth Smallest Value w/ Partitioning
- * 2022-03-08
- * time spent: .5 hours
+ * HW73 -- All About the About Face
+ * 2022-03-09
+ * time spent: 01.0 hours
  * 
  * ALGO: O(n^2)... not greart
  * BEST CASE SCENARIO: When the first pivot that we choose maps to the y-1th index after being partitioned
@@ -35,8 +35,8 @@ public class QuickSelect {
    * int partition(int[],int,int,int)
    * DESCRIP
    * This method takes in an input array, and it looks at the data chunk between the inputted start and end indices.
-   * It then sorts that interval into two sections, left and right. Using the third input value, splitInd, it sets a special value.
-   * This value is used as a comparison for all array values, if an array element is less than or equal then it goes into the left section of the array,
+   * It then sorts that interval into two sections, left and right. It uses the start index as the index of the pivot position.
+   * This value of the pivot is used as a comparison for all array values, if an array element is less than or equal then it goes into the left section of the array,
    * if however it is greater than the special value at the specifed index it will go in the right section. 
    * 
    * @param arr : input array
@@ -77,20 +77,51 @@ public class QuickSelect {
     int end = arr.length - 1; // init end
     while(true) {
         newLoc = partition(arr, start, end); // partition by current pvt
-        if(newLoc < y - 1) { // if val at pvt ended up too small
-            start = newLoc;
-        } else if(newLoc > y - 1) {
-            end = newLoc;
-        } else {
-            return arr[y - 1];
+        if(end == arr.length-1 && end-start == 1){
+            return arr[end];
+        }
+        else{
+            if(newLoc < y - 1) { // if val at pvt ended up too small
+                start = newLoc;
+            } else if(newLoc > y - 1) {
+                end = newLoc;
+            } else {
+                return arr[y - 1];
+            }
         }
     }
   }
 
   public static void main(String[] args) {
-      int[] arr = {0, 5, 3, 6, 5};
-      System.out.println(fastSelect(arr, 2));
-      int[] arr2 = {1, 1, 1, 1, 1};
-      System.out.println(fastSelect(arr2, 2));
+    int[] arr = {0, 5, 3, 6, 5};
+    System.out.println("Testing cases for {0, 5, 3, 6, 5}: ");
+    System.out.println("y=1: " + fastSelect(arr, 1)); //expected: 0
+    System.out.println("y=2: " + fastSelect(arr, 2)); //expected: 3
+    //System.out.println("y=3: " + fastSelect(arr, 3)); //expected: 5
+    //System.out.println("y=4: " + fastSelect(arr, 4)); //expected: ?, gets stuck in a loop
+    System.out.println("y=5: " + fastSelect(arr, 5)); //expected: 6
+
+    int[] arr2 = {1, 1, 1, 1, 1};
+    System.out.println("Testing cases for {1, 1, 1, 1, 1}: ");
+    //System.out.println("y=2: " + fastSelect(arr2, 2)); //expected: ?, gets stuck in a loop
+
+    int[] arr3 = {12, 5, 23, 7, 49, 4, 65, 231};
+    System.out.println("Testing cases for {12, 5, 23, 7, 49, 4, 65, 231}: ");
+    System.out.println("y=1: " + fastSelect(arr3, 1)); //expected: 4
+    System.out.println("y=2: " + fastSelect(arr3, 2)); //expected: 5
+    System.out.println("y=3: " + fastSelect(arr3, 3)); //expected: 7
+    System.out.println("y=4: " + fastSelect(arr3, 4)); //expected: 12
+    System.out.println("y=5: " + fastSelect(arr3, 5)); //expected: 23
+    System.out.println("y=6: " + fastSelect(arr3, 6)); //expected: 49
+    System.out.println("y=7: " + fastSelect(arr3, 7)); //expected: 65
+    System.out.println("y=8: " + fastSelect(arr3, 8)); //expected: 231
+
+    int[] arr4 = {-4, 6, -2, 3, 0};
+    System.out.println("Testing cases for {-4, 6, -2, 3, 0}: ");
+    System.out.println("y=1: " + fastSelect(arr4, 1)); //expected: -4
+    System.out.println("y=2: " + fastSelect(arr4, 2)); //expected: -2
+    System.out.println("y=3: " + fastSelect(arr4, 3)); //expected: 0
+    System.out.println("y=4: " + fastSelect(arr4, 4)); //expected: 3
+    System.out.println("y=5: " + fastSelect(arr4, 5)); //expected: 6
   }
 }
