@@ -11,10 +11,10 @@ public class LList implements List //interface def must be in this dir
   private int _size;
 
   // constructor -- initializes instance vars
-  public LList(LLNode head)
+  public LList()
   {
     // YOUR CODE HERE
-    _head = head;
+    _head = new LLNode("", null);
   }
 
 
