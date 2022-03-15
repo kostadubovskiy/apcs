@@ -84,7 +84,7 @@ public class LList implements List //interface def must be in this dir
   {
     // YOUR CODE HERE
     LLNode temp = _head;
-    Strin res = "";
+    String res = "";
     while(temp != null) {
         res += temp.getCargo();
         res += " ";
@@ -97,13 +97,14 @@ public class LList implements List //interface def must be in this dir
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     LList james = new LList();
     System.out.println( james );
     System.out.println( "size: " + james.size() );
     james.add("beat");
     System.out.println( james );
     System.out.println( "size: " + james.size() );
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     james.add("a");
     System.out.println( james );
     System.out.println( "size: " + james.size() );
