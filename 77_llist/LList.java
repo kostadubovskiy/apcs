@@ -43,6 +43,23 @@ public class LList implements List //interface def must be in this dir
   }
 
 
+  public boolean remove( int index ) {
+    LLNode before = _head;
+    LLNode after = _head;
+    for(int i = 0; i < index-2; i++) {
+        if (i <= index - 2) {
+            before = before.getNext();
+        } 
+        if (i <= index) {
+            after = after.getNext();
+        }
+    }
+    
+    before.setNext(after);
+
+  }
+
+
   public String get( int index )
   {
     if ( index < 0 || index >= size() )
