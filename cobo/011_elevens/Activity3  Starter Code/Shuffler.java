@@ -66,6 +66,13 @@ public class Shuffler {
 		}
 	}
 
+	public static void swap( int x, int y, int[] o )
+	{
+		int tmp = o[x];
+		o[x] = o[y];
+		o[y] = tmp;
+	}
+
 	/**
 	 * Apply an "efficient selection shuffle" to the argument.
 	 * The selection shuffle algorithm conceptually maintains two sequences
@@ -79,6 +86,13 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-
+		//shuffle elements of input array
+		int tmp;
+		int swapPos;
+		for( int i = 0; i < values.length; i++ ) {
+			tmp = values[i];
+			swapPos = i + (int)( (d.length - i) * Math.random() );
+			swap( i, swapPos, values );
+		}
 	}
 }
