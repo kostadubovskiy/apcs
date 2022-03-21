@@ -91,7 +91,7 @@ public class Shuffler {
 		int swapPos;
 		for( int i = 0; i < values.length; i++ ) {
 			tmp = values[i];
-			swapPos = i + (int)( (d.length - i) * Math.random() );
+			swapPos = i + (int)( (values.length - i) * Math.random() );
 			swap( i, swapPos, values );
 		}
 	}
