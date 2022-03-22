@@ -62,7 +62,7 @@ public class DLLNode
   public DLLNode setLast(DLLNode newLast){
     /* DLLNode foo = getLast();
     _leftNode = newLast; */
-    
+
     DLLNode foo = getNext();
     foo._leftNode = newLast;
     return foo;
@@ -91,7 +91,7 @@ public class DLLNode
 
     //change first node
     System.out.println(first.getNext().getLast());
-    
+
 
     //Create a third node after the second
     first.getNext().setNext( new DLLNode( "cow", null ) );
@@ -114,7 +114,7 @@ public class DLLNode
         dog  *
             / \
           cow  *
-     
+
     */
 
     //...so better: ?
