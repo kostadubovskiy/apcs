@@ -28,7 +28,9 @@ public class Latkes
        magicks
        here
     */
-  }// O(?)
+    _stackSize = initCapacity;
+    _stack = new String[initCapacity];
+  }// O(1)
 
 
   //means of insertion
@@ -40,8 +42,13 @@ public class Latkes
        magicks
        here
     */
-  }// O(?)
-
+    for(int i = 0; i < _stackSize; i++) {
+      if (_stack[i] == null) {
+        _stack[i] = s;
+        return;
+      }
+    }
+  }// O(n)
 
   //means of removal
   public String pop( )
@@ -52,7 +59,14 @@ public class Latkes
        magicks
        here
     */
-  }// O(?)
+    for(int i = 0; i < _stackSize; i++) {
+      if (_stack[i] == null) {
+        String tempRet = _stack[i - 1];
+        _stack[i - 1] = 0;
+        return tempRet;
+      }
+    }
+  }// O(n)
 
 
   //chk for emptiness
@@ -64,7 +78,11 @@ public class Latkes
        magicks
        here
     */
-  }// O(?)
+    if (_stack[0] == null) {
+      return true;
+    }
+    return false;
+  }// O(1)
 
 
   //chk for fullness
@@ -76,16 +94,19 @@ public class Latkes
        magicks
        here
     */
+    if (_stack[_stackSize] != null) {
+      return false;
+    }
+    return true;
   }// O(?)
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
     Latkes tastyStack = new Latkes(10);
-
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     tastyStack.push("aoo");
     tastyStack.push("boo");
     tastyStack.push("coo");
