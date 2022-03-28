@@ -62,10 +62,13 @@ public class Latkes
     for(int i = 0; i < _stackSize; i++) {
       if (_stack[i] == null) {
         String tempRet = _stack[i - 1];
-        _stack[i - 1] = 0;
+        _stack[i - 1] = null;
         return tempRet;
       }
     }
+    String temp = _stack[_stackSize - 1];
+    _stack[_stackSize - 1] = null;
+    return temp;
   }// O(n)
 
 
@@ -106,8 +109,8 @@ public class Latkes
   {
 
     Latkes tastyStack = new Latkes(10);
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     tastyStack.push("aoo");
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     tastyStack.push("boo");
     tastyStack.push("coo");
     tastyStack.push("doo");
