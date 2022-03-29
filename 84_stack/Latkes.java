@@ -42,12 +42,16 @@ public class Latkes
        magicks
        here
     */
-    for(int i = 0; i < _stackSize; i++) {
-      if (_stack[i] == null) {
-        _stack[i] = s;
-        return;
+    if (not isFull()) {
+      _stack[_stackSize] = s;
+    } else {
+      String[] _stackExtended = new String[_stack.length() * 2];
+      for (int i = 0; i < _stackSize; i ++) {
+        _stackExtended[i] = _stack[i];
       }
+      _stack = _stackExtended;
     }
+    _stackSize += 1;
   }// O(n)
 
   //means of removal
@@ -59,13 +63,6 @@ public class Latkes
        magicks
        here
     */
-    for(int i = 0; i < _stackSize; i++) {
-      if (_stack[i] == null) {
-        String tempRet = _stack[i - 1];
-        _stack[i - 1] = null;
-        return tempRet;
-      }
-    }
     String temp = _stack[_stackSize - 1];
     _stack[_stackSize - 1] = null;
     return temp;
@@ -97,7 +94,7 @@ public class Latkes
        magicks
        here
     */
-    if (_stack[_stackSize] != null) {
+    if (_stack[_stack.length() - 1] != null) {
       return false;
     }
     return true;
