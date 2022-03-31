@@ -4,16 +4,18 @@
  * Implements a stack of Strings using an encapsulated array
  **/
 
-public class ALStack<PANCAKE> implements Stack<PANCAKE>
+import java.util.*;
+
+public class LLStack<PANCAKE> implements Stack<PANCAKE>
 {
-  private ArrayList<PANCAKE> _stack;
+  private LinkedList<PANCAKE> _stack;
   private int _stackSize;
 
 
   //constructor
-  public ALStack<PANCAKE>()
+  public LLStack()
   {
-    _stack = new ArrayList<PANCAKE>();
+    _stack = new LinkedList<PANCAKE>();
     _stackSize = 0;
   }
 
@@ -33,6 +35,10 @@ public class ALStack<PANCAKE> implements Stack<PANCAKE>
     if ( isEmpty() )  return null;
     retStr = _stack.remove(_stackSize-1);
     return retStr;
+  }
+
+  public PANCAKE peekTop() {
+      return _stack.get(_stackSize - 1);
   }
 
 
