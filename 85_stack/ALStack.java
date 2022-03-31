@@ -34,6 +34,7 @@ public class ALStack<PANCAKE> implements Stack<PANCAKE>
     PANCAKE retStr = null;
     if ( isEmpty() )  return null;
     retStr = _stack.remove(_stackSize-1);
+    _stackSize--;
     return retStr;
   }
 

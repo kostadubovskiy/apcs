@@ -32,8 +32,9 @@ public class LLStack<PANCAKE> implements Stack<PANCAKE>
   public PANCAKE pop()
   {
     PANCAKE retStr = null;
-    if ( isEmpty() )  return null;
+    if ( isEmpty() )  return retStr;
     retStr = _stack.remove(_stackSize-1);
+    _stackSize--;
     return retStr;
   }
 
