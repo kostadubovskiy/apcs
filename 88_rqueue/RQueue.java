@@ -35,13 +35,13 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   public void enqueue( SWASHBUCKLE enQVal )
   {
     if(isEmpty()){
-      LLNode<QUASAR> temp = new LLNode<QUASAR>(enQVal, null);
+      LLNode<SWASHBUCKLE> temp = new LLNode<SWASHBUCKLE>(enQVal, null);
       _queue = temp;
       _front = _queue;
       _end = _queue;
     }
     else{
-        LLNode<QUASAR> temp = new LLNode<QUASAR>(enQVal, null);
+        LLNode<SWASHBUCKLE> temp = new LLNode<SWASHBUCKLE>(enQVal, null);
         _end.setNext(temp);
         _end = _end.getNext();
     }
