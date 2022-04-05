@@ -47,19 +47,19 @@ public class Cereal {
       return _type;
   }
 
-  public String getCals() {
+  public int getCals() {
       return _cals;
   }
 
-  public String getProtein() {
+  public int getProtein() {
       return _protein;
   }
 
-  public String getFat() {
+  public int getFat() {
       return _fat;
   }
 
-  public String getSodium() {
+  public int getSodium() {
       return _sodium;
   }
 
@@ -71,31 +71,31 @@ public class Cereal {
       return _carbs;
   }
 
-  public String getSugar() {
+  public int getSugar() {
       return _sugar;
   }
 
-  public String getPotassium() {
+  public int getPotassium() {
       return _potassium;
   }
 
-  public String getVitamins() {
+  public int getVitamins() {
       return _vitamins;
   }
 
-  public String getShelf() {
+  public int getShelf() {
       return _shelf;
   }
 
-  public String getWeights() {
+  public int getWeights() {
       return _weights;
   }
 
-  public String getCups() {
+  public double getCups() {
       return _cups;
   }
 
-  public String getRating() {
+  public double getRating() {
       return _rating;
   }
 
