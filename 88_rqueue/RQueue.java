@@ -91,9 +91,57 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   // print each node, separated by spaces
   public String toString()
   {
-
+    String retString = "";
+    int i = 1;
+    LLNode<SWASHBUCKLE> current = _front;
+    while(i < _size) {
+      retString += current.getCargo();
+      current = current.getNext();
+      i++;
+    }
   }//end toString()
 
+
+  public class LLNode<SWASHBUCKLE>{
+    //instance vars
+    private SWASHBUCKLE _cargo;
+    private LLNode _nextNode;
+
+    // constructor
+    public LLNode( SWASHBUCKLE value, LLNode<SWASHBUCKLE> next )
+    {
+          _cargo = value;
+          _nextNode = next;
+      }
+
+      //--------------v  ACCESSORS  v--------------
+      public SWASHBUCKLE getCargo()
+      {
+          return _cargo;
+      }
+
+      public LLNode<SWASHBUCKLE> getNext()
+      {
+          return _nextNode;
+      }
+      //--------------^  ACCESSORS  ^--------------
+
+
+      //--------------v  MUTATORS  v--------------
+      public SWASHBUCKLE setCargo( SWASHBUCKLE newCargo )
+      {
+          SWASHBUCKLE foo = getCargo();
+          _cargo = newCargo;
+          return foo;
+      }
+
+      public LLNode<SWASHBUCKLE> setNext( LLNode<SWASHBUCKLE> newNext )
+      {
+          LLNode<SWASHBUCKLE> foo = getNext();
+          _nextNode = newNext;
+          return foo;
+      }
+  }//end LLNode class
 
 
   //main method for testing
