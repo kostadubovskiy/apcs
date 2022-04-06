@@ -23,5 +23,13 @@ public class Welcome03_List {
             System.out.println("  " + ws.getId() + ": " + ws.getName());
          }
       }
+
+      WeatherStation minLatStn = allstns.get(0);
+      for (WeatherStation ws : allstns) {
+        if (ws.getLat() < minLatStn.getLat() ) {
+          minLatStn = ws;
+        }
+      }
+      System.out.println("  " + minLatStn.getId() + ": " + minLatStn.getName());
    }
 }
