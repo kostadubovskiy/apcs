@@ -42,4 +42,9 @@ Activity 2)
 
 Activity 3)
   1) The temperature at Atlanta, Hartsfield - Jackson Atlanta International Airport, GA is 63.0F
-  2) The temperature at Wisconsin, 
+  2) The temperature at (KATW)Appleton-Outagamie, WI is 48.0F
+  3)  KATL: 72.0 degrees; Light Rain Fog/Mist (wind: 220 degrees)
+      KSAV: 84.0 degrees; Mostly Cloudy (wind: 220 degrees)
+      KATW: 48.0 degrees; Overcast and Windy (wind: 190 degrees)
+      Colder at KATL
+  4)
