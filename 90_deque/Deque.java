@@ -14,6 +14,13 @@ public interface Deque<Card>{
   public void addLast(Card c);
   public Card removeFirst();
   public Card removeLast();
+  public Card getFirst();
+  public Card getLast();
+  public Card pollLast();
+  public Card pollLast();
+  public boolean offerFirst(Card c);
+  public boolean offerLast(Card c);
+
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
