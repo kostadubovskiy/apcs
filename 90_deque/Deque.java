@@ -1,8 +1,8 @@
 /* Unicorn Unicodes: Eric, Lea, Kosta
 APCS
-HW90 -- Swabbing the Deque
-2022-04-12
-time spent: 00.8 hrs */
+HW90&91 -- Swabbing the Deque
+2022-04-12/13
+time spent: 1 hrs */
 
 public interface Deque<Card>{
 

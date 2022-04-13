@@ -1,8 +1,8 @@
 /* Unicorn Unicodes: Eric, Lea, Kosta
 APCS
-HW90 -- Swabbing the Deque
-2022-04-12
-time spent: 00.8 hrs */
+HW90&91 -- Swabbing the Deque
+2022-04-12/13
+time spent: 1.0 hrs */
 
 import java.util.LinkedList;
 
@@ -42,6 +42,30 @@ public class LLDeque<Card> implements Deque<Card>{
         return _deque.removeLast();
     }
 
+    public Card getFirst(){
+        return _deque.getFirst();
+    }
+
+    public Card getLast(){
+        return _deque.getLast();
+    }
+    public Card pollFirst(){
+        return _deque.pollFirst();
+    }
+
+    public Card pollLast(){
+        return _deque.pollLast();
+    }
+    public boolean offerFirst(Card c){
+        return _deque.offerFirst(c);
+    }
+
+    public boolean offerLast(Card c){
+        return _deque.offerLast(c);
+    }
+
+
+
     public String toString(){
         String retString = "";
         for(int i = 0; i < _deque.size(); i++){
@@ -52,7 +76,7 @@ public class LLDeque<Card> implements Deque<Card>{
 
     public static void main( String[] args ){
 
-        YourImplementationOfDeque<String> PirateQueue = new YourImplementationOfDeque<String>();
+        LLDeque<String> PirateQueue = new LLDeque<String>();
         System.out.println(PirateQueue.isEmpty()); //expected: true
         System.out.println("\nnow enqueuing...");
 
