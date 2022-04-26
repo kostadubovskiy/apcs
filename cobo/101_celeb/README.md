@@ -6,8 +6,9 @@ time spent: 1.0 hours
 
 
 TODO:
--gameflow
--etc.
+- ~~set up celebrity class instance variables & methods~~
+- ~~peruse java oracle GUI API~~
+- etc.
 
 
 
