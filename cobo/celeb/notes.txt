@@ -33,4 +33,6 @@ Act.2
  5. Done. 
  6. Done. 
  7. We only have one, which is overloaded with both the name and the hints to set them up at the creation of a celebrity object. Another one could be made without hints being overloaded, and they would then have to be added after genesis.
- 8. 
+
+Act. 3
+ 1. 
