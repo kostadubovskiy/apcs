@@ -25,6 +25,16 @@ public class BST
   BST()
   {
     /*** YOUR IMPLEMENTATION HERE ***/
+    _root = new TreeNode(null);
+  }
+
+  /**
+   * overloaded constructor
+   */
+  BST(TreeNode root)
+  {
+    /*** YOUR IMPLEMENTATION HERE ***/
+    _root = root;
   }
 
 
@@ -35,6 +45,7 @@ public class BST
   public void insert( int newVal )
   {
     TreeNode newNode = new TreeNode( newVal );
+
     /*** YOUR IMPLEMENTATION HERE ***/
   }
   //recursive helper for insert(int)
@@ -55,31 +66,36 @@ public class BST
   //process root, recurse left, recurse right
   public void preOrderTrav()
   {
-    preOrderTrav( _root );
+    preOrderTrav( _root);
   }
   public void preOrderTrav( TreeNode currNode )
   {
     /*** YOUR IMPLEMENTATION HERE ***/
+    return currNode.getValue() + preOrderTrav(currNode.getLeft()) + preOrderTrav(currNode.getRight());
   }
 
   //recurse left, process root, recurse right
   public void inOrderTrav()
   {
     /*** YOUR IMPLEMENTATION HERE ***/
+    inOrderTrav(_root);
   }
   public void inOrderTrav( TreeNode currNode )
   {
     /*** YOUR IMPLEMENTATION HERE ***/
+    return inOrderTrav(currNode.getLeft()) + currNode.getValue() + inOrderTrav(currNode.getRight());
   }
 
   //recurse left, recurse right, process root
   public void postOrderTrav()
   {
     /*** YOUR IMPLEMENTATION HERE ***/
+    return postOrderTrav(_root);
   }
   public void postOrderTrav( TreeNode currNode )
   {
     /*** YOUR IMPLEMENTATION HERE ***/
+    return postOrderTrav(currNode.getLeft()) + postOrderTrav(currNode.getRight()) + currNode.getValue();
   }
 
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
