@@ -1,3 +1,6 @@
+import javax.swing.plaf.basic.BasicBorders.SplitPaneBorder;
+import javax.swing.text.PlainDocument;
+
 /**
  * class BST
  * v1:partial
@@ -85,7 +88,12 @@ public class BST
   public void preOrderTrav( TreeNode currNode )
   {
     /*** YOUR IMPLEMENTATION HERE ***/
-    return currNode.getValueue() + preOrderTrav(currNode.getLeft()) + preOrderTrav(currNode.getRight());
+    if(currNode.getLeft() == null && currNode.getRight() == null) {
+      System.out.println(currNode.getValue());
+    }
+    System.out.println(currNode.getValue());
+    preOrderTrav(currNode.getLeft());
+    preOrderTrav(currNode.getRight());
   }
 
   //recurse left, process root, recurse right
@@ -97,19 +105,29 @@ public class BST
   public void inOrderTrav( TreeNode currNode )
   {
     /*** YOUR IMPLEMENTATION HERE ***/
-    return inOrderTrav(currNode.getLeft()) + currNode.getValueue() + inOrderTrav(currNode.getRight());
+    if(currNode.getLeft() == null && currNode.getRight() == null) {
+      System.out.print(currNode.getValue());
+    }
+    inOrderTrav(currNode.getLeft());
+    System.out.println(currNode.getValue());
+    inOrderTrav(currNode.getRight());
   }
 
   //recurse left, recurse right, process root
   public void postOrderTrav()
   {
     /*** YOUR IMPLEMENTATION HERE ***/
-    return postOrderTrav(_root);
+    postOrderTrav(_root);
   }
   public void postOrderTrav( TreeNode currNode )
   {
     /*** YOUR IMPLEMENTATION HERE ***/
-    return postOrderTrav(currNode.getLeft()) + postOrderTrav(currNode.getRight()) + currNode.getValueue();
+    if(currNode.getLeft() == null && currNode.getRight() == null) {
+      System.out.println(currNode.getValue());
+    }
+    postOrderTrav(currNode.getLeft());
+    postOrderTrav(currNode.getRight());
+    System.out.println(currNode.getValue());
   }
 
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
@@ -130,11 +148,11 @@ public class BST
     arbol.insert( 6 );
     arbol.insert( 1 );
     arbol.insert( 3 );
-    /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
     
-      System.out.println( "\n-----------------------------");
-      System.out.println( "pre-order traversal:" );
-      arbol.preOrderTrav();
+    System.out.println( "\n-----------------------------");
+    System.out.println( "pre-order traversal:" );
+    arbol.preOrderTrav();
+    /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 
       System.out.println( "\n-----------------------------");
       System.out.println( "in-order traversal:" );
