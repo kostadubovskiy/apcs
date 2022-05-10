@@ -22,7 +22,6 @@ public class TreeNode
   {
     /*** YOUR IMPLEMENTATION HERE ***/
     _cargo = initValue;
-    _lt, _rt = null;
   }
 
 
