@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
 /**
  * class TreeNode
  * SKELETON
@@ -24,11 +20,7 @@ public class TreeNode
    */
   TreeNode( int initValue )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
-<<<<<<< HEAD
-=======
     _cargo = initValue;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 
@@ -38,13 +30,9 @@ public class TreeNode
    */
   TreeNode( int initValue, TreeNode initLeft, TreeNode initRight )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
-<<<<<<< HEAD
-=======
-    _cargo = initValue;
+    this(initValue);
     _lt = initLeft;
     _rt = initRight;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 
@@ -53,11 +41,7 @@ public class TreeNode
    */
   TreeNode getLeft()
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
-<<<<<<< HEAD
-=======
     return _lt;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 
@@ -66,11 +50,7 @@ public class TreeNode
    */
   TreeNode getRight()
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
-<<<<<<< HEAD
-=======
     return _rt;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 
@@ -79,11 +59,7 @@ public class TreeNode
    */
   int getValue()
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
-<<<<<<< HEAD
-=======
     return _cargo;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 
@@ -92,11 +68,7 @@ public class TreeNode
    */
   void setLeft( TreeNode theNewLeft )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
-<<<<<<< HEAD
-=======
     _lt = theNewLeft;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 
@@ -105,27 +77,16 @@ public class TreeNode
    */
   void setRight( TreeNode theNewRight )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
-<<<<<<< HEAD
-=======
     _rt = theNewRight;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 
   /**
    * Sets the value of this tree node.
    */
-<<<<<<< HEAD
-  void setValue( int theNewValue )
-  {
-    /*** YOUR IMPLEMENTATION HERE ***/
-=======
   void setValue( int theNewValue ) 
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
     _cargo = theNewValue;
->>>>>>> ec720658bcf770d45d334fd2ade8975bdc47ae34
   }
 
 }//end class
