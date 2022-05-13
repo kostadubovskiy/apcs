@@ -1,3 +1,5 @@
+import Java.util.ArrayList;
+
 public class ArrayPriorityQueue {
   /**
     ArrayPriorityQueue class
@@ -9,7 +11,13 @@ public class ArrayPriorityQueue {
         +
   */
 
-  private ArrayList<Integer> al = new ArrayList<Integer>();
+  private ArrayList<Integer> al;
+  public int size;
+
+  public ArrayPriorityQueue() {
+    al = new ArrayList<Integer>();
+    size = 0;
+  }
 
   public void add(int x) {
     int ind = al.size() - 1;
@@ -17,6 +25,7 @@ public class ArrayPriorityQueue {
       ind--;
     }
     al.add(ind, x);
+    size++;
   }
 
   public boolean isEmpty() {
@@ -28,6 +37,29 @@ public class ArrayPriorityQueue {
   }
 
   public int removeMin() {
+    size--;
     return al.remove(al.size() - 1);
+  }
+
+  public int size() {
+    return al.size();
+  }
+
+  public String toString() {
+    String retVal = "";
+    for(int i = size-1; i>=0; i--) {
+      
+    }
+  }
+
+  public static void main(String[] args) {
+    ArrayPriorityQueue KDubs = new ArrayPriorityQueue();
+    KDubs.add(4);
+    KDubs.add(4);
+    KDubs.add(4);
+    KDubs.add(4);
+    KDubs.add(4);
+    KDubs.add(4);
+    KDubs.add(4);
   }
 }
