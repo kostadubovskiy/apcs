@@ -117,9 +117,8 @@ public class BST
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  /**
-    features_not_bugs
-  */
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //~~~~~~~~~~~~~v~~FEATURES NOT BUGS~~v~~~~~~~~~~~~~~~~~~~~~
 
   /*****************************************************
    * TreeNode search(int)
@@ -131,7 +130,10 @@ public class BST
   	/*** YOUR IMPLEMENTATION HERE ***/
     TreeNode currNode = _root;
     while(true) {
-      if(target < currNode.getValue()) {
+      if(currNode == null) {
+        return null;
+      }
+      else if(target < currNode.getValue()) {
         currNode = currNode.getLeft();
       } else if(target > currNode.getValue()) {
         currNode = currNode.getRight();
@@ -150,11 +152,21 @@ public class BST
   public int height()
   {
   	/*** YOUR IMPLEMENTATION HERE ***/
-
+    return height(_root);
   }
 
   public int height(TreeNode currNode) {
-    
+    if (currNode == null) {
+      return 0;
+    }
+    else {
+      if (height(currNode.getLeft()) >= height(currNode.getRight())) {
+        return 1 + height(currNode.getLeft());
+      }
+      else {
+        return 1 + height(currNode.getRight());
+      }
+    }
   }
 
 
@@ -165,6 +177,16 @@ public class BST
   public int numLeaves()
   {
   	/*** YOUR IMPLEMENTATION HERE ***/
+    return numLeaves(_root);
+  }
+
+  public int numLeaves(TreeNode currNode) {
+    if (currNode == null) {
+      return 0;
+    }
+    else {
+      return (1 + numLeaves(currNode.getLeft()) + numLeaves(currNode.getRight()));
+    }
   }
 
 
@@ -197,6 +219,20 @@ public class BST
     arbol.postOrderTrav();
 
     System.out.println( "\n-----------------------------");
+    System.out.println( "height:" );
+    System.out.print( arbol.height()); // Expect 3
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "number of leaves:" );
+    System.out.print( arbol.numLeaves()); // Expect 6
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "searching for 2" );
+    System.out.print( arbol.search(2)); // Expect some location
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "searching for 7" );
+    System.out.print( arbol.search(7)); // Expect null
     /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
