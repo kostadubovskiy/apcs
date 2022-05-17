@@ -17,7 +17,7 @@ public class ALHeap
    */
   public ALHeap()
   {
-    _heap = new ArrayList<Integer>(); 
+    _heap = new ArrayList<Integer>();
   }
 
 
@@ -30,6 +30,7 @@ public class ALHeap
    */
   public String toString()
   {
+    return _heap.toString();
   }//O(?)
 
 
@@ -39,6 +40,7 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
+
   }//O(?)
 
 
