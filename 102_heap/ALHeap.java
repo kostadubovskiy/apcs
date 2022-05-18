@@ -1,4 +1,12 @@
 /**
+Jerk Kafe :: Joseph, Ruby, Kosta
+APCS pd7
+HW102 -- Heap On Heapin' On
+2022-05-18w
+time spent: 1.0 hrs
+*/
+
+/**
  * class ALHeap
  * SKELETON
  * Implements a min heap using an ArrayList as underlying container
@@ -30,8 +38,18 @@ public class ALHeap
    */
   public String toString()
   {
-    return _heap.toString();
-  }//O(?)
+    String ret = "";
+    int pow = 1;
+    for (int i=0; i<_heap.size(); i++) {
+      if (i + 1 == (int)Math.pow(2, pow)) {
+        ret += "\n";
+        pow++;
+      }
+      ret += _heap.get(i) + " ";
+    }
+    ret += "\n";
+    return ret;
+  }//O(n)
 
 
   /**
@@ -40,8 +58,8 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
-
-  }//O(?)
+    return _heap.size() == 0;
+  }//O(1)
 
 
   /**
@@ -51,7 +69,8 @@ public class ALHeap
    */
   public Integer peekMin()
   {
-  }//O(?)
+    return _heap.get(0);
+  }//O(1)
 
 
   /**
@@ -59,11 +78,21 @@ public class ALHeap
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * insert node as leaf by adding to the end, and comparing its value with its
+   parent. If parent > new val, swap them. Continue until parent is no longer
+   greater than node.
    */
   public void add( Integer addVal )
   {
-  }//O(?)
+    _heap.add(addVal);
+    int index = _heap.size() - 1; // points to current index of the node we're adding.
+    int parentInd = (index - 1) / 2; // parent location
+    while(_heap.get(index) < _heap.get(parentInd)) { // while my parent is larger than I am
+      swap(index, parentInd); // swap me with my parent in the ArrayList
+      index = parentInd; // update my location.
+      parentInd = (index - 1) / 2; // update my parent's location. Repeat until done.
+    }
+  }//O(logn)
 
 
   /**
@@ -71,11 +100,27 @@ public class ALHeap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * first, store the min element (first element of array).
+   Then, set the root to temporarily be the final leaf.
+   Swap the leaf with its minimum child until it is at most both of its children.
    */
   public Integer removeMin()
   {
-  }//O(?)
+    if(_heap.size() == 1) {
+      return _heap.remove(0);
+    }
+    int retVal = _heap.get(0);
+    int x = _heap.remove(_heap.size() - 1);
+    _heap.set(0, x);
+    int index = 0; //where the last leaf is now.
+    while(2*index + 1 < _heap.size()
+    && _heap.get(index) > _heap.get(minChildPos(index))) { //if node leaf is greater than >= 1 of its children
+      int tmp = minChildPos(index);
+      swap(index, minChildPos(index)); //swap me with the SMALLER child
+      index = tmp; //update my location. Continue until done.
+    }
+    return retVal;
+  }//O(logn)
 
 
   /**
@@ -86,7 +131,21 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
-  }//O(?)
+    if(_heap.size() <= (2*pos + 1)) { // If not in the list, or don't have children
+      return -1;
+    }
+
+    if(_heap.size() == (2*pos + 2)) {
+      return 2*pos + 1; //only have left child; return its index.
+    }
+
+    if(minOf(_heap.get(2*pos+1), _heap.get(2*pos+2)) == _heap.get(2*pos+1)) {
+      return 2*pos + 1;
+    }
+    else {
+      return 2*pos + 2;
+    }
+  }//O(1)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
@@ -110,7 +169,7 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -134,6 +193,7 @@ public class ALHeap
       pile.add(9);
       System.out.println(pile);
 
+
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
@@ -156,6 +216,7 @@ public class ALHeap
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
