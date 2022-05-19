@@ -149,6 +149,9 @@ public class ALHeapMax
     return retVal;
   }//O(logn)
 
+  public int size() {
+    return _heap.size();
+  }
 
   /**
    * minChildPos(int)  ---  helper fxn for removeMax()
