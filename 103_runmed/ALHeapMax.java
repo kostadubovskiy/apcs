@@ -136,8 +136,8 @@ public class ALHeapMax
       //if no children, then i've walked far enough
       if ( maxChildPos == -1 )
         break;
-      //if i am less than my least child, then i've walked far enough
-      else if ( foo.compareTo( _heap.get(maxChildPos) ) <= 0 )
+      //if i am greater than my greatest child, then i've walked far enough
+      else if ( foo.compareTo( _heap.get(maxChildPos) ) > 0 )
         break;
       //if i am > least child, swap with that child
       else {
