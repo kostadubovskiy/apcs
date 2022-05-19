@@ -60,7 +60,11 @@ public class RunMed {
         RunMed rm = new RunMed();
         rm.add(1);
         rm.add(2);
-        System.out.println(rm);
-        System.out.println(rm.getMedian());
+        System.out.println(rm + "\n");
+        System.out.println("Current median: " + rm.getMedian());
+        rm.add(5);
+        rm.add(10);
+        System.out.println(rm + "\n");
+        System.out.println("Current median: " + rm.getMedian());
     }
 }
